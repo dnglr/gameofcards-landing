@@ -1,69 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Cards Against Humanity remix.">
-    <meta name="keywords" content="cah, cards against humanity, online">
-    <title>Game of Cards</title>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <style>
-        html { font-family: 'Inter', sans-serif; background-color: #f9fafb;}
-        @supports (font-variation-settings: normal) {
-            html { font-family: 'Inter var', sans-serif; }
-        }
-        .logo {
-            display: block;
-            margin: 7vh auto 3vh;
-            height: 25vh;
-            width: auto;
-        }
-        .headline {
-            font-size: 5vh;
-            font-weight: bold;
-            text-align: center;
-            line-height: 1;
-            letter-spacing: -0.025em;
-            margin: 0 auto;
-        }
-        .headline strong {
-            color: #5850ec;
-        }
-        .followme {
-            margin: 8vh auto;
-            text-align: center;
-            font-weight: 500;
-            color: #161e2e;
-            font-size: 3vh;
-        }
-        .twitter-follow-button {
-            display: inline-block;
-            margin: 2vh auto;
-        }
-        @media screen and (min-width: 768px) {
-            .headline {
-                font-size: 7vh;
-            }
-        }
-        @media screen and (min-width: 1025px) {
-            .headline {
-                font-size: 10vh;
-            }
-            .followme {
-                font-size: 3.5vh;
-            }
-        }
-    </style>
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0731b1f83f2a9796ff005e4f1/ed222712c9a48e2343182564a.js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Cards Against Humanity remix.">
+  <meta name="keywords" content="cah, cards against humanity, online">
+  <title>Game of Cards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <style>
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      text-align: center;
+    }
+
+    @supports (font-variation-settings: normal) {
+      html {
+        font-family: 'Inter var', sans-serif;
+      }
+    }
+
+    body {
+      padding-bottom: 50px;
+    }
+
+    .logo {
+      display: block;
+      margin: 7vh auto 3vh;
+      height: 25vh;
+      width: auto;
+    }
+
+    .headline {
+      font-size: 5vh;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      margin: 0 auto;
+    }
+
+    .headline strong {
+      color: #5850ec;
+      font-weight: bold;
+    }
+
+    .subheadline {
+      font-size: 1.75rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      margin: 0 auto;
+      position: relative;
+      width: max-content;
+      max-width: 66%;
+    }
+
+    .copy {
+      font-weight: 500;
+      width: 90vw;
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.25rem;
+      line-height: 1.333;
+    }
+
+    .followme {
+      margin: 8vh auto;
+      text-align: center;
+      font-weight: 500;
+      color: #161e2e;
+      font-size: 3vh;
+    }
+
+    .twitter-follow-button {
+      display: inline-block;
+      margin: 2vh auto 1vh;
+      transform: scale(0.75);
+    }
+
+    .arrow {
+      display: block;
+      height: 1em;
+      width: auto;
+      position: absolute;
+      right: 0;
+      top:50%;
+      transform: translate(110%, -30%);
+    }
+
+    #form-thanks {
+      display: none;
+    }
+
+    #form {
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+
+    #form label {
+      text-transform: uppercase;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #form input {
+      appearance: none;
+      border: solid 1px rgba(0,0,0,0.9);
+      display: inline-block;
+      padding: 8px 10px;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    
+    #form button {
+      appearance: none;
+      border: 0 none;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: all 0.25s ease-in-out;
+      cursor: pointer;
+    }
+
+    #form button:hover {
+      padding: 10px 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .headline {
+        font-size: 7vh;
+      }
+
+      .subheadline {
+        font-size: 2rem;
+      }
+      .copy {
+        font-size: 1.4rem;
+        margin: 30px auto;
+      }
+    }
+
+    @media screen and (min-width: 1025px) {
+      .headline {
+        font-size: 10vh;
+      }
+
+      .subheadline {
+        /* font-size: 6vh; */
+      }
+
+      .followme {
+        font-size: 3.5vh;
+      }
+
+      .twitter-follow-button {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-<!--     <svg class="logo" viewBox="0 0 3000 3000" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><path fill="#fff" d="M911.393 676.821H2076.69v527.68H911.393z"/><path d="M1508.012 434.994l153.734-196.582 178.576 196.582 227.525-171.468v410.259H945.397V263.526l227.526 171.468L1351.5 238.412l156.512 196.582zM945.398 679.245c-78.047 191.392-159.735 469.612 80.36 569.01m1042.704-569.01c78.048 191.392 159.735 469.612-80.36 569.01m-900.089-371.591s146.551 307.466 899.5 116.837v353.463c0 264.421-216.457 480.878-480.878 480.878s-480.878-216.457-480.878-480.878V1078.24" fill="#fff" fill-rule="nonzero" stroke="#000" stroke-width="81.99109999999999"/><g><path d="M1921.634 2807.233c-10.425 0-19.112-1.737-29.536-3.475l-460.405-118.141 469.092-1066.749 274.505 69.495c64.283 15.636 102.506 81.657 86.87 145.94l-224.122 882.587c-8.687 31.272-27.798 57.333-55.596 72.97-19.111 12.161-39.96 17.373-60.808 17.373z" fill="#fff" fill-rule="nonzero" stroke="#000" stroke-width="57.912499999999994" stroke-miterlimit="2"/><path d="M1844.853 1757.207l297.284 74.137-16.472 66.053-297.285-74.137zM1814.757 1915.398l190.474 47.5-16.473 66.054-190.474-47.501z"/><path d="M1070.32 2775.96c-20.85 0-41.698-5.212-60.809-17.373-27.798-15.637-46.909-41.697-55.596-72.97l-224.121-884.324c-15.637-64.283 22.585-128.566 86.868-145.94l302.304-76.445 590.708 1019.84c-15.637 17.374-34.748 27.798-57.334 34.748l-552.485 138.99c-10.425 3.474-20.849 3.474-29.536 3.474z" fill="#fff" fill-rule="nonzero" stroke="#000" stroke-width="57.912499999999994" stroke-miterlimit="2"/><path d="M858.791 1794.93l309.787-78.718 16.766 65.98-309.787 78.717zM908.843 1950.507l253.583-64.436 16.765 65.98-253.583 64.435z"/><path d="M1796.542 2603.96h-569.859c-66.02 0-119.879-53.858-119.879-119.879V1571.96c0-66.02 53.859-119.879 119.88-119.879h569.858c66.02 0 119.88 53.859 119.88 119.879v913.86c-1.738 64.283-53.86 118.141-119.88 118.141z" fill-rule="nonzero"/><path fill="#fff" d="M1206.02 1617.837h581.969v68.076h-581.97zM1215.832 1779.282h398.048v68.076h-398.048z"/></g></svg> -->
-    <svg id="efy91jxxc321" class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><style><![CDATA[#efy91jxxc324_to {animation: efy91jxxc324_to__to 3000ms linear 1 normal forwards}@keyframes efy91jxxc324_to__to { 0% {transform: translate(1360.480000px,2584px)} 40% {transform: translate(1360.480000px,2584px);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 66.666667% {transform: translate(1418.115464px,2692.737430px)} 100% {transform: translate(1418.115464px,2692.737430px)} }#efy91jxxc324_tr {animation: efy91jxxc324_tr__tr 3000ms linear 1 normal forwards}@keyframes efy91jxxc324_tr__tr { 0% {transform: rotate(-15deg)} 40% {transform: rotate(-15deg);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 100% {transform: rotate(0deg)} }#efy91jxxc324_ts {animation: efy91jxxc324_ts__ts 3000ms linear 1 normal forwards}@keyframes efy91jxxc324_ts__ts { 0% {transform: scale(0.750000,0.750000)} 40% {transform: scale(0.750000,0.750000);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 66.666667% {transform: scale(1,1)} 100% {transform: scale(1,1)} }#efy91jxxc327_tr {animation: efy91jxxc327_tr__tr 3000ms linear 1 normal forwards}@keyframes efy91jxxc327_tr__tr { 0% {transform: translate(1694.420693px,2603.961000px) rotate(15deg);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 100% {transform: translate(1694.420693px,2603.961000px) rotate(0deg)} }#efy91jxxc327_ts {animation: efy91jxxc327_ts__ts 3000ms linear 1 normal forwards}@keyframes efy91jxxc327_ts__ts { 0% {transform: scale(0.800000,0.800000);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 33.333333% {transform: scale(1,1)} 100% {transform: scale(1,1)} }#efy91jxxc327 {animation: efy91jxxc327_c_o 3000ms linear 1 normal forwards}@keyframes efy91jxxc327_c_o { 0% {opacity: 0} 3.333333% {opacity: 1} 100% {opacity: 1} }]]></style><path id="efy91jxxc323" d="M1508.012000,434.994000L1661.746000,238.412000L1840.322000,434.994000L2067.847000,263.526000L2067.847000,673.785000L945.397000,673.785000L945.397000,263.526000L1172.923000,434.994000L1351.500000,238.412000L1508.012000,434.994000ZM945.398000,679.245000C867.351000,870.637000,785.663000,1148.857000,1025.758000,1248.255000M2068.462000,679.245000C2146.510000,870.637000,2228.197000,1148.857000,1988.102000,1248.255000M1088.013000,876.664000C1088.013000,876.664000,1234.564000,1184.130000,1987.513000,993.501000L1987.513000,1346.964000C1987.513000,1611.385000,1771.056000,1827.842000,1506.635000,1827.842000C1242.214000,1827.842000,1025.757000,1611.385000,1025.757000,1346.964000L1025.757000,1078.240000" clip-rule="evenodd" fill="none" fill-rule="evenodd" stroke="rgb(0,0,0)" stroke-width="81.991096" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><g id="efy91jxxc324_to" transform="translate(1360.480000,2584)"><g id="efy91jxxc324_tr" transform="rotate(-15)"><g id="efy91jxxc324_ts" transform="scale(0.750000,0.750000)"><g id="efy91jxxc324" transform="translate(-1418.115464,-2692.737430)"><path id="efy91jxxc325" d="M1921.634000,2807.233000C1911.209000,2807.233000,1902.522000,2805.496000,1892.098000,2803.758000L1431.693000,2685.617000L1900.785000,1618.868000L2175.290000,1688.363000C2239.573000,1703.999000,2277.796000,1770.020000,2262.160000,1834.303000L2038.038000,2716.890000C2029.351000,2748.162000,2010.240000,2774.223000,1982.442000,2789.860000C1963.331000,2802.021000,1942.482000,2807.233000,1921.634000,2807.233000Z" transform="matrix(1 0 0 1 0 -1.03099999999995)" clip-rule="evenodd" fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="57.912498" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2"/><path id="efy91jxxc326" d="M1844.853000,1757.207000L2142.137000,1831.344000L2125.665000,1897.397000L1828.380000,1823.260000ZM1814.757000,1915.398000L2005.231000,1962.898000L1988.758000,2028.952000L1798.284000,1981.451000Z" clip-rule="evenodd" fill="rgb(0,0,0)" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></g></g></g></g><g id="efy91jxxc327_tr" transform="translate(1694.420693,2603.961000) rotate(15)"><g id="efy91jxxc327_ts" transform="scale(0.800000,0.800000)"><g id="efy91jxxc327" transform="translate(-1695.094693,-2603.961000)" opacity="0"><path id="efy91jxxc328" d="M1070.320000,2775.960000C1049.470000,2775.960000,1028.622000,2770.748000,1009.511000,2758.587000C981.713000,2742.950000,962.602000,2716.890000,953.915000,2685.617000L729.794000,1801.293000C714.157000,1737.010000,752.379000,1672.727000,816.662000,1655.353000L1118.966000,1578.908000L1709.674000,2598.748000C1694.037000,2616.122000,1674.926000,2626.546000,1652.340000,2633.496000L1099.855000,2772.486000C1089.430000,2775.960000,1079.006000,2775.960000,1070.319000,2775.960000Z" clip-rule="evenodd" fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="57.912498" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2"/><path id="efy91jxxc329" d="M858.791000,1794.930000L1168.578000,1716.212000L1185.344000,1782.192000L875.557000,1860.909000ZM908.843000,1950.507000L1162.426000,1886.071000L1179.191000,1952.051000L925.608000,2016.486000Z" clip-rule="evenodd" fill="rgb(0,0,0)" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></g></g></g><g id="efy91jxxc3210"><path id="efy91jxxc3211" d="M1796.542000,2603.960000L1226.683000,2603.960000C1160.663000,2603.960000,1106.804000,2550.102000,1106.804000,2484.081000L1106.804000,1571.960000C1106.804000,1505.940000,1160.663000,1452.081000,1226.684000,1452.081000L1796.542000,1452.081000C1862.562000,1452.081000,1916.422000,1505.940000,1916.422000,1571.960000L1916.422000,2485.820000C1914.684000,2550.103000,1862.562000,2603.961000,1796.542000,2603.961000Z" clip-rule="evenodd" fill="rgb(0,0,0)" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><path id="efy91jxxc3212" d="M1206.020000,1617.837000L1787.989000,1617.837000L1787.989000,1685.913000L1206.019000,1685.913000ZM1215.832000,1779.282000L1613.880000,1779.282000L1613.880000,1847.358000L1215.832000,1847.358000Z" clip-rule="evenodd" fill="rgb(255,255,255)" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></g></svg>
-    <h1 class="headline">When you play the<br>
-        <strong>Game of Cards</strong><br>
-        You win or you die.</h1>
-    <p class="followme">Want development updates? <br><a href="https://twitter.com/garrettdengler?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @garrettdengler</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-    
-    
+  <svg id="efy91jxxc321" class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3000 3000" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><style><![CDATA[#efy91jxxc324_to {animation: efy91jxxc324_to__to 3000ms linear 1 normal forwards}@keyframes efy91jxxc324_to__to { 0% {transform: translate(1360.480000px,2584px)} 40% {transform: translate(1360.480000px,2584px);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 66.666667% {transform: translate(1418.115464px,2692.737430px)} 100% {transform: translate(1418.115464px,2692.737430px)} }#efy91jxxc324_tr {animation: efy91jxxc324_tr__tr 3000ms linear 1 normal forwards}@keyframes efy91jxxc324_tr__tr { 0% {transform: rotate(-15deg)} 40% {transform: rotate(-15deg);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 100% {transform: rotate(0deg)} }#efy91jxxc324_ts {animation: efy91jxxc324_ts__ts 3000ms linear 1 normal forwards}@keyframes efy91jxxc324_ts__ts { 0% {transform: scale(0.750000,0.750000)} 40% {transform: scale(0.750000,0.750000);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 66.666667% {transform: scale(1,1)} 100% {transform: scale(1,1)} }#efy91jxxc327_tr {animation: efy91jxxc327_tr__tr 3000ms linear 1 normal forwards}@keyframes efy91jxxc327_tr__tr { 0% {transform: translate(1694.420693px,2603.961000px) rotate(15deg);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 100% {transform: translate(1694.420693px,2603.961000px) rotate(0deg)} }#efy91jxxc327_ts {animation: efy91jxxc327_ts__ts 3000ms linear 1 normal forwards}@keyframes efy91jxxc327_ts__ts { 0% {transform: scale(0.800000,0.800000);animation-timing-function: cubic-bezier(0.455000,0.030000,0.515000,0.955000)} 33.333333% {transform: scale(1,1)} 100% {transform: scale(1,1)} }#efy91jxxc327 {animation: efy91jxxc327_c_o 3000ms linear 1 normal forwards}@keyframes efy91jxxc327_c_o { 0% {opacity: 0} 3.333333% {opacity: 1} 100% {opacity: 1} }]]></style><path id="efy91jxxc323" d="M1508.012000,434.994000L1661.746000,238.412000L1840.322000,434.994000L2067.847000,263.526000L2067.847000,673.785000L945.397000,673.785000L945.397000,263.526000L1172.923000,434.994000L1351.500000,238.412000L1508.012000,434.994000ZM945.398000,679.245000C867.351000,870.637000,785.663000,1148.857000,1025.758000,1248.255000M2068.462000,679.245000C2146.510000,870.637000,2228.197000,1148.857000,1988.102000,1248.255000M1088.013000,876.664000C1088.013000,876.664000,1234.564000,1184.130000,1987.513000,993.501000L1987.513000,1346.964000C1987.513000,1611.385000,1771.056000,1827.842000,1506.635000,1827.842000C1242.214000,1827.842000,1025.757000,1611.385000,1025.757000,1346.964000L1025.757000,1078.240000" clip-rule="evenodd" fill="none" fill-rule="evenodd" stroke="rgb(0,0,0)" stroke-width="81.991096" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><g id="efy91jxxc324_to" transform="translate(1360.480000,2584)"><g id="efy91jxxc324_tr" transform="rotate(-15)"><g id="efy91jxxc324_ts" transform="scale(0.750000,0.750000)"><g id="efy91jxxc324" transform="translate(-1418.115464,-2692.737430)"><path id="efy91jxxc325" d="M1921.634000,2807.233000C1911.209000,2807.233000,1902.522000,2805.496000,1892.098000,2803.758000L1431.693000,2685.617000L1900.785000,1618.868000L2175.290000,1688.363000C2239.573000,1703.999000,2277.796000,1770.020000,2262.160000,1834.303000L2038.038000,2716.890000C2029.351000,2748.162000,2010.240000,2774.223000,1982.442000,2789.860000C1963.331000,2802.021000,1942.482000,2807.233000,1921.634000,2807.233000Z" transform="matrix(1 0 0 1 0 -1.03099999999995)" clip-rule="evenodd" fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="57.912498" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2"/><path id="efy91jxxc326" d="M1844.853000,1757.207000L2142.137000,1831.344000L2125.665000,1897.397000L1828.380000,1823.260000ZM1814.757000,1915.398000L2005.231000,1962.898000L1988.758000,2028.952000L1798.284000,1981.451000Z" clip-rule="evenodd" fill="rgb(0,0,0)" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></g></g></g></g><g id="efy91jxxc327_tr" transform="translate(1694.420693,2603.961000) rotate(15)"><g id="efy91jxxc327_ts" transform="scale(0.800000,0.800000)"><g id="efy91jxxc327" transform="translate(-1695.094693,-2603.961000)" opacity="0"><path id="efy91jxxc328" d="M1070.320000,2775.960000C1049.470000,2775.960000,1028.622000,2770.748000,1009.511000,2758.587000C981.713000,2742.950000,962.602000,2716.890000,953.915000,2685.617000L729.794000,1801.293000C714.157000,1737.010000,752.379000,1672.727000,816.662000,1655.353000L1118.966000,1578.908000L1709.674000,2598.748000C1694.037000,2616.122000,1674.926000,2626.546000,1652.340000,2633.496000L1099.855000,2772.486000C1089.430000,2775.960000,1079.006000,2775.960000,1070.319000,2775.960000Z" clip-rule="evenodd" fill="rgb(255,255,255)" stroke="rgb(0,0,0)" stroke-width="57.912498" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2"/><path id="efy91jxxc329" d="M858.791000,1794.930000L1168.578000,1716.212000L1185.344000,1782.192000L875.557000,1860.909000ZM908.843000,1950.507000L1162.426000,1886.071000L1179.191000,1952.051000L925.608000,2016.486000Z" clip-rule="evenodd" fill="rgb(0,0,0)" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></g></g></g><g id="efy91jxxc3210"><path id="efy91jxxc3211" d="M1796.542000,2603.960000L1226.683000,2603.960000C1160.663000,2603.960000,1106.804000,2550.102000,1106.804000,2484.081000L1106.804000,1571.960000C1106.804000,1505.940000,1160.663000,1452.081000,1226.684000,1452.081000L1796.542000,1452.081000C1862.562000,1452.081000,1916.422000,1505.940000,1916.422000,1571.960000L1916.422000,2485.820000C1914.684000,2550.103000,1862.562000,2603.961000,1796.542000,2603.961000Z" clip-rule="evenodd" fill="rgb(0,0,0)" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><path id="efy91jxxc3212" d="M1206.020000,1617.837000L1787.989000,1617.837000L1787.989000,1685.913000L1206.019000,1685.913000ZM1215.832000,1779.282000L1613.880000,1779.282000L1613.880000,1847.358000L1215.832000,1847.358000Z" clip-rule="evenodd" fill="rgb(255,255,255)" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></g></svg>
+  <h1 class="headline">When you play the<br>
+  <strong>Game of Cards</strong><br>You win or you die.</h1>
+  <p class="followme">Want development updates? <br><a href="https://twitter.com/garrettdengler?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @garrettdengler</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+  <div id="form-container">
+    <h2 class="subheadline">Sign Up For Early Access <img class="arrow" src="arrow.svg" alt="Below"></h2>
+    <p class="copy">I am currently hard at work on Game of Cards and would love to share it with those who are interested in trying it as a beta. You can sign up below to get an invitation to play the private beta as soon as it's ready.</p>
+    <form id="form" name="subscribe" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+      <p>
+        <label>Name: <input type="text" name="name" /></label>   
+      </p>
+      <p>
+        <label>Email: <input type="email" name="email" /></label>
+      </p>
+      <div data-netlify-recaptcha="true"></div>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
+  </div>
+  <div id="form-thanks">
+    <h2 class="subheadline">Thanks!</h2>
+    <p class="copy">I will be reaching out as soon as it's ready to test.<br>I can't wait to share this with you!</p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    var $formThanks = $("#form-thanks");
+    var $formContainer = $("form-container");
+    $("#form").submit(function(e) {
+      e.preventDefault();
+      var $form = $(this);
+      $.post($form.attr("action"), $form.serialize()).then(function() {
+        $formContainer.hide();
+        $formThanks.show();
+      });
+    });
+  </script>
 </body>
 </html>
