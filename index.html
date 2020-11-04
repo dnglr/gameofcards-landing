@@ -213,6 +213,10 @@
       $.post($form.attr("action"), $form.serialize()).then(function() {
         $formContainer.remove();
         $formThanks.show();
+        setTimeout(function(){
+          $formThanks[0].scrollIntoView();
+        }, 100);
+        
       });
     });
   </script>
